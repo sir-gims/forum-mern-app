@@ -26,7 +26,7 @@ function App() {
   });
 
   return (
-    <AuthState>
+    // <AuthState>
       <Router>
         <Fragment>
           <Navbar />
@@ -51,7 +51,7 @@ function App() {
           <Footer />
         </Fragment>
       </Router>
-    </AuthState>
+    // </AuthState>
   );
 }
 

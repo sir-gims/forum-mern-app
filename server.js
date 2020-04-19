@@ -11,9 +11,10 @@ dotenv.config({ path: './config.env' });
 const app = require('./app');
 
 const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
+const DATABASE_LOCAL = process.env.DATABASE_LOCAL;
 
 mongoose
-  .connect(DB, {
+  .connect(DATABASE_LOCAL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
