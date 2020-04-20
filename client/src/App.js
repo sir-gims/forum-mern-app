@@ -19,6 +19,14 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
 
+import AuthState from './context/auth/AuthState';
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+
 function App() {
   useEffect(() => {
     // Initilaizes Materialize JS
@@ -26,7 +34,7 @@ function App() {
   });
 
   return (
-    // <AuthState>
+    <AuthState>
       <Router>
         <Fragment>
           <Navbar />
@@ -51,7 +59,7 @@ function App() {
           <Footer />
         </Fragment>
       </Router>
-    // </AuthState>
+    </AuthState>
   );
 }
 
