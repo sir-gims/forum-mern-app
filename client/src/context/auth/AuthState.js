@@ -34,7 +34,7 @@ const AuthState = props => {
     try {
       const res = await axios.get('/api/v1/users/me');
 
-      dispatch({type: USER_LOADED, payload: res.data})
+      dispatch({type: USER_LOADED, payload: res.data.data.data})
     } catch (err) {
       dispatch({type:AUTH_ERROR})
     }
@@ -90,7 +90,21 @@ const AuthState = props => {
     }
   };
   // Logout
-  const logout = () => dispatch({type: LOGOUT});
+  const logout = async () => {
+    // {{URL}}api/v1/users/logout
+    try {
+      const res = await axios.get('/api/v1/users/logout');
+      // dispatch({type: USER_LOADED, payload: res.data.data.data})
+      if ((res.data.status = 'success')) {
+        // location.reload(true);
+        dispatch({type: LOGOUT});
+      } 
+      
+    } catch (err) {
+      console.log(err.response);
+      
+    }
+  }
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
