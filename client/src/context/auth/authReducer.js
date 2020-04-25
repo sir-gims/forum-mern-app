@@ -5,6 +5,7 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    CHANGE_PASSWORD,
     LOGOUT,
     CLEAR_ERRORS
   } from '../types';
@@ -20,6 +21,7 @@ import {
         }
       case REGISTER_SUCCESS:
       case LOGIN_SUCCESS:
+      case CHANGE_PASSWORD:
         localStorage.setItem('token', action.payload.token);
         return {
           ...state,

@@ -10,6 +10,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  CHANGE_PASSWORD,
   LOGOUT,
   CLEAR_ERRORS
 } from '../types';
@@ -89,12 +90,31 @@ const AuthState = props => {
       });
     }
   };
+  //change password
+  const changePassword = async formData => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.patch('api/v1/users/updateMyPassword', formData, config);
+
+      dispatch({
+        type: CHANGE_PASSWORD,
+        payload: res.data
+      });
+      logout();    
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
   // Logout
   const logout = async () => {
     // {{URL}}api/v1/users/logout
     try {
       const res = await axios.get('/api/v1/users/logout');
-      // dispatch({type: USER_LOADED, payload: res.data.data.data})
       if ((res.data.status = 'success')) {
         // location.reload(true);
         dispatch({type: LOGOUT});
@@ -120,6 +140,7 @@ const AuthState = props => {
         register,
         loadUser,
         login,
+        changePassword,
         logout,
         clearErrors
       }}
