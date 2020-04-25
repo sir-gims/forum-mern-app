@@ -4,8 +4,7 @@ const EditItem = () => {
     return (
         <Fragment>
              <div className="row">
-             <br/>
-            <h1 className="center-align">Edit Data</h1>
+            <h1 className="center-align">Edit Profile</h1>
     <form className="col s12">
       <div className="row">
         <div className="input-field col s8 offset-s2">
@@ -25,8 +24,17 @@ const EditItem = () => {
           <label htmlFor="aboutMe">About-me</label>
         </div>
       </div>
+      <div className="file-field input-field col s8 offset-s2">
+        <div className="btn">
+          <span>File</span>
+          <input type="file" />
+        </div>
+        <div className="file-path-wrapper">
+          <input className="file-path validate" placeholder="upload a profile picture" type="text" />
+        </div>
+      </div>
       <input type="submit"
-                 className="btn pink lighten-2 col s2 offset-s5"
+                 className="btn teal darken-3 col s2 offset-s5"
                   value="Submit"
                    />
     </form>
