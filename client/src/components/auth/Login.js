@@ -62,7 +62,7 @@ const Login = (props) => {
                     </div>
                 </div>
                 <input type="submit"
-                 className="btn teal darken-3 col s2 offset-s3"
+                 className="btn teal darken-3 col s2 offset-s5"
                   value="Login"
                    />
                 {/* <input type="submit"

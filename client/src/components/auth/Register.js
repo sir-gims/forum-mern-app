@@ -54,7 +54,6 @@ const Register = (props) => {
     return (
         <Fragment>
             <div className="row">
-            <br/>
             <h1 className="center-align">Register</h1>
     <form onSubmit={onSubmit} className="col s12">
       <div className="row">
