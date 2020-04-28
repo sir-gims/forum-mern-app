@@ -10,6 +10,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  CHANGE_DATA,
   CHANGE_PASSWORD,
   LOGOUT,
   CLEAR_ERRORS
@@ -110,6 +111,28 @@ const AuthState = props => {
       console.log(err.response);
     }
   };
+  // change user's data
+  const changeData = async formData => {
+    // const config = {
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // };
+
+    try {
+      const res = await axios.patch('api/v1/users/updateMe', formData);
+      // {{URL}}api/v1/users/updateMe
+      dispatch({
+        type: CHANGE_DATA,
+        payload: res.data.data.user
+        // payload: res.data
+      });
+      // logout();    
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
   // Logout
   const logout = async () => {
     // {{URL}}api/v1/users/logout
@@ -140,6 +163,7 @@ const AuthState = props => {
         register,
         loadUser,
         login,
+        changeData,
         changePassword,
         logout,
         clearErrors
