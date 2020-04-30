@@ -6,6 +6,7 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     CHANGE_DATA,
+    UPLOAD_PROFILE_PIC,
     CHANGE_PASSWORD,
     LOGOUT,
     CLEAR_ERRORS
@@ -15,6 +16,7 @@ import {
     switch (action.type) {
       case USER_LOADED:
       case CHANGE_DATA:
+      case UPLOAD_PROFILE_PIC:
         return {
           ...state,
           isAuthenticated: true,

@@ -4,7 +4,7 @@ import AuthContext from '../../context/auth/authContext';
 const ChangeData = (props) => {
   const authContext = useContext(AuthContext);
 
-  const {changeData, error, clearErrors, isAuthenticated} = authContext;
+  const {changeData, uploadProfilePic, error, clearErrors, isAuthenticated} = authContext;
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -33,6 +33,10 @@ const ChangeData = (props) => {
 
   const onChange = e => setData({ ...data, [e.target.name]: e.target.value });
 
+  const onFileChange = e => {
+    setData({ ...data, [e.target.name]: e.target.files[0]});
+  }
+
   const removeEmpty = (obj) => {
     Object.keys(obj).forEach((k) => (!obj[k] && obj[k] !== undefined) && delete obj[k]);
     return obj;
@@ -43,10 +47,15 @@ const ChangeData = (props) => {
   const onSubmit = e => {
     e.preventDefault();
 
-    // if (name && bio) {
-    //   changeData({name,bio});
-    // }
-     changeData(cleaner); 
+    if (photo !== null || photo !== undefined) {
+      const formData = new FormData();
+      formData.append('photo', photo);
+      // formData.append(JSON.stringify(cleaner));
+      uploadProfilePic(formData);
+    } 
+      changeData(cleaner); 
+      // uploadProfilePic(cleaner);
+
     props.history.push('/')    
   };
 
@@ -94,17 +103,13 @@ const ChangeData = (props) => {
           <span>File</span>
           <input type="file"
                  name="photo"
-                 value={photo}
-                 onChange={onChange}  
+                 onChange={onFileChange}  
            />
         </div>
         <div className="file-path-wrapper">
           <input className="file-path validate"
                  placeholder="upload a profile picture"
                 type="text"
-                name="photo"
-                value={photo}
-                onChange={onChange}
                  />
         </div>
       </div>

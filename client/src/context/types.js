@@ -17,6 +17,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const CHANGE_DATA = 'CHANGE_DATA';
+export const UPLOAD_PROFILE_PIC = 'UPLOAD_PROFILE_PIC';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';

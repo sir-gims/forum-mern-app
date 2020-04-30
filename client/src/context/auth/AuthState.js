@@ -11,6 +11,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   CHANGE_DATA,
+  UPLOAD_PROFILE_PIC,
   CHANGE_PASSWORD,
   LOGOUT,
   CLEAR_ERRORS
@@ -132,6 +133,27 @@ const AuthState = props => {
       console.log(err.response);
     }
   };
+  // upload profile picture
+  const uploadProfilePic = async formData => {
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    };
+
+    try {
+      const res = await axios.patch('api/v1/users/updateMe', formData, config);
+      // {{URL}}api/v1/users/updateMe
+      dispatch({
+        type: UPLOAD_PROFILE_PIC,
+        payload: res.data.data.user
+        // payload: res.data
+      });
+      // logout();    
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
 
   // Logout
   const logout = async () => {
@@ -164,6 +186,7 @@ const AuthState = props => {
         loadUser,
         login,
         changeData,
+        uploadProfilePic,
         changePassword,
         logout,
         clearErrors
