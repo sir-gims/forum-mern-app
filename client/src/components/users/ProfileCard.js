@@ -11,8 +11,8 @@ const ProfileCard = () => {
     return (
         <Fragment>
         <br/>
-        <div className="card large row">
-            <div className="card-image waves-effect waves-block waves-light col m6 s6">
+        <div className="card medium row">
+            <div className="card-image waves-effect waves-block waves-light col m6 s6" style={{maxHeight: '100%'}}>
             <img className="activator" src={ProfilePic} height="270" width="1600" />
             </div>
             <div className="card-content">
