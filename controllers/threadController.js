@@ -64,7 +64,7 @@ exports.aliasTopThreads = (req, res, next) => {
 };
 
 // nese don qe tkesh komentet edhe tek 'kejt' reviewsat ather jepja 2nd argument ni objekt njejt sikur te getThread func
-exports.getAllThreads = factory.getAll(Thread);
+exports.getAllThreads = factory.getAll(Thread, { path: 'reviews' });
 exports.getThread = factory.getOne(Thread, { path: 'reviews' });
 exports.createThread = factory.createOne(Thread);
 exports.updateThread = factory.updateOne(Thread);
