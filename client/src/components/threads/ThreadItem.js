@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -15,10 +15,10 @@ const ThreadItem = ({thread}) => {
          <ul className="collection">
           <li className="collection-item avatar">
             <img src="images/yuna.jpg" alt="" className="circle" />
-            <Link to='/comments' className="title teal-text darken-3" style={{fontSize: '2rem'}}>{name}</Link>
+            <Link to={`/comments/${_id}`} className="title teal-text darken-3" style={{fontSize: '2rem'}}>{name}</Link>
             <br/><br/>
             <Link to='/profile'>Author: {user.name}</Link>
-            <Link to='/comments' style={{marginLeft: '2rem'}}>{reviews.length} Comments</Link> 
+            <Link to={`/comments/${_id}`} style={{marginLeft: '2rem'}}>{reviews.length} Comments</Link> 
               <span className="right">{`${TimePosted} at ${Hour}`}</span>
             
             <Link to='/newComment' className="secondary-content"><i className="material-icons">comment</i></Link>

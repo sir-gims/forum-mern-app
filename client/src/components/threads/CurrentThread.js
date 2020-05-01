@@ -1,27 +1,30 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
 
-const CurrentThread = () => {
+const CurrentThread = ({current}) => {
+    const { name, images, createdAt, bodyText, user } = current;
+    var TimePosted = createdAt.slice(0, 10);
+    var Hour = createdAt.slice(12, 16);  
+
     return (
         <Fragment>
         <div className="row"></div>
-        <div className="row"></div>
+        <br/>
         <div className="row">
             <div className="row"></div>
             <div className="col s12 m12">
             <div className="card">
                 <div className="card-image">
                 <img src="images/sample-1.jpg" />
-                <span className="card-title black-text">Card Title</span>
+                <span className="card-title black-text">{name}</span>
                 </div>
                 <div className="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                <p>{bodyText}</p>
                 </div>
                 <div className="card-action black-text">
-                <Link to='/profile'>Author</Link>
+                <Link to='/profile'>{user.name}</Link>
                 <Link to='/newComment'>Write a Comment</Link>
-                <span className="right">Date</span>
+                <span className="right">{`${TimePosted} at ${Hour}`}</span>
                 </div>
             </div>
             </div>

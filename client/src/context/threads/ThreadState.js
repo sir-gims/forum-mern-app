@@ -22,7 +22,21 @@ const ThreadState = props => {
   const [state, dispatch] = useReducer(threadReducer, initialState);
 
   // read thread
+  const getThread = async (id) => {
+    try {
+    // {{URL}}api/v1/threads/:id
+      const res = await axios.get(`/api/v1/threads/${id}`);
 
+      dispatch({
+        type: READ_THREAD,
+        payload: res.data.data.data
+      });
+
+    } catch (err) {
+      console.log(err.response);
+
+    }
+  };
   // create thread
   const createThread = async formData => {
     const config = {
@@ -77,6 +91,7 @@ const ThreadState = props => {
         current: state.current,
         error: state.error,
         loadThreads,
+        getThread,
         createThread
 
       }}

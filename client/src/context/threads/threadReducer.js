@@ -6,7 +6,8 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     CLEAR_ERRORS,
-    LOAD_THREADS
+    LOAD_THREADS,
+    READ_THREAD
   } from '../types';
   
   export default (state, action) => {
@@ -37,6 +38,12 @@ import {
           user: null,
           error: action.payload
         };
+      case READ_THREAD:
+        return {
+          ...state,
+          loading: false,
+          current: action.payload
+        }
       case CLEAR_ERRORS:
         return {
           ...state,

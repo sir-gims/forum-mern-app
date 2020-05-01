@@ -10,7 +10,7 @@ import About from './components/pages/About';
 import Threads from './components/threads/Threads';
 import Profile from './components/users/ProfileCard';
 import newThread from './components/threads/newThread';
-import CurrentThread from './components/threads/CurrentThread';
+// import CurrentThread from './components/threads/CurrentThread';
 import newComment from './components/comments/newComment';
 import Comments from './components/comments/Comments';
 import ChangeData from './components/auth/ChangeData';
@@ -48,9 +48,9 @@ function App() {
                 {/* <Route exact path='/home' component={Home} /> */}
                 <PrivateRoute exact path='/' component={Threads} />
                 <PrivateRoute exact path='/profile' component={Profile} />
-                <PrivateRoute exact path='/current' component={CurrentThread} />
+                {/* <PrivateRoute exact path='/current' component={CurrentThread} /> */}
                 <PrivateRoute exact path='/newThread' component={newThread} />
-                <PrivateRoute exact path='/comments' component={Comments} />
+                <PrivateRoute exact path='/comments/:id' component={Comments} />
                 <PrivateRoute exact path='/newComment' component={newComment} />
                 <Route exact path='/about' component={About} />
                 <PrivateRoute exact path='/edit-data' component={ChangeData} />
