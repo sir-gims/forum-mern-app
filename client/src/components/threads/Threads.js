@@ -11,7 +11,7 @@ const Threads = () => {
   useEffect(() => {
     loadThreads();
     // eslint-disable-next-line
-  }, []);
+  }, [loading]);
 
   if (threads === null) {
     return <h4>Please add a thread</h4>;

@@ -1,5 +1,4 @@
 import {
-    REGISTER_SUCCESS,
     REGISTER_FAIL,
     AUTH_ERROR,
     CREATE_THREAD,
@@ -18,7 +17,6 @@ import {
           loading: false,
           threads: action.payload
         }
-      case REGISTER_SUCCESS:
       case CREATE_THREAD:
         return {
           ...state,

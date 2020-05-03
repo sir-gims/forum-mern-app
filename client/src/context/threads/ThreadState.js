@@ -92,7 +92,8 @@ const ThreadState = props => {
         error: state.error,
         loadThreads,
         getThread,
-        createThread
+        createThread,
+        clearErrors
 
       }}
     >

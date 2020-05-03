@@ -9,7 +9,7 @@ import About from './components/pages/About';
 // import Home from './components/pages/Home';
 import Threads from './components/threads/Threads';
 import Profile from './components/users/ProfileCard';
-import newThread from './components/threads/newThread';
+import NewThread from './components/threads/NewThread';
 // import CurrentThread from './components/threads/CurrentThread';
 import newComment from './components/comments/newComment';
 import Comments from './components/comments/Comments';
@@ -49,7 +49,7 @@ function App() {
                 <PrivateRoute exact path='/' component={Threads} />
                 <PrivateRoute exact path='/profile' component={Profile} />
                 {/* <PrivateRoute exact path='/current' component={CurrentThread} /> */}
-                <PrivateRoute exact path='/newThread' component={newThread} />
+                <PrivateRoute exact path='/newThread' component={NewThread} />
                 <PrivateRoute exact path='/comments/:id' component={Comments} />
                 <PrivateRoute exact path='/newComment' component={newComment} />
                 <Route exact path='/about' component={About} />
