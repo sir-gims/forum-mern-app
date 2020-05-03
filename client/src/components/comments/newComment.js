@@ -1,15 +1,53 @@
-import React, { Fragment } from 'react'
+import React, {Fragment, useState, useContext, useEffect} from 'react';
+import ThreadContext from '../../context/threads/threadContext';
 
-const newComment = () => {
+const NewComment = (props) => {
+    const threadContext = useContext(ThreadContext);
+
+    const { loading, current, getThread, createComment } = threadContext;
+
+     var id = props.match.params.id;
+    //  useEffect(() => {
+        
+    //   getThread(id);
+    // // eslint-disable-next-line
+    // }, [])
+
+      const [comment, setComment] = useState({
+        review: null
+      });
+    
+      const { review } = comment;
+    
+      const onChange = e => setComment({ ...comment, [e.target.name]: e.target.value });
+    
+      const onSubmit = e => {
+        e.preventDefault();
+     
+         createComment(id,comment); 
+        //  console.log(comment.Review);
+         
+          // uploadProfilePic(cleaner);
+        setTimeout(() => {
+          props.history.push('/')    
+        }, 3000);
+      };
+    
+
     return (
         <Fragment>
         <br/>
         <div className="row">
-            <form className="col s12">
+            <form onSubmit={onSubmit} className="col s12">
             <div className="row">
                 <div className="input-field col s12">
-                <textarea id="textarea1" className="materialize-textarea" defaultValue={""} />
-                <label htmlFor="textarea1">Write a Comment ...</label>
+                <textarea name="review"
+                 className="materialize-textarea"
+                 value={review}
+                  onChange={onChange}
+                  defaultValue={""}
+                   />
+                <label htmlFor="review">Write a Comment ...</label>
                 </div>
             </div>
             <input type="submit"
@@ -22,4 +60,4 @@ const newComment = () => {
     )
 }
 
-export default newComment;
+export default NewComment;

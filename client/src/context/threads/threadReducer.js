@@ -2,6 +2,7 @@ import {
     REGISTER_FAIL,
     AUTH_ERROR,
     CREATE_THREAD,
+    CREATE_COMMENT,
     LOGIN_FAIL,
     LOGOUT,
     CLEAR_ERRORS,
@@ -18,6 +19,7 @@ import {
           threads: action.payload
         }
       case CREATE_THREAD:
+      case CREATE_COMMENT:
         return {
           ...state,
           loading: false,

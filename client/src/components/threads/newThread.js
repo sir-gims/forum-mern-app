@@ -50,8 +50,9 @@ const NewThread = (props) => {
           } 
             createThread(cleaner); 
             // uploadProfilePic(cleaner);
-      
-          props.history.push('/')    
+          setTimeout(() => {
+            props.history.push('/')    
+          }, 3000);
         };
       
 

@@ -21,7 +21,7 @@ const ThreadItem = ({thread}) => {
             <Link to={`/comments/${_id}`} style={{marginLeft: '2rem'}}>{reviews.length} Comments</Link> 
               <span className="right">{`${TimePosted} at ${Hour}`}</span>
             
-            <Link to='/newComment' className="secondary-content"><i className="material-icons">comment</i></Link>
+            <Link to={`/newComment/${_id}`} className="secondary-content"><i className="material-icons">comment</i></Link>
           </li>
         </ul>   
         </>

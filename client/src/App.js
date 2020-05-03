@@ -11,7 +11,7 @@ import Threads from './components/threads/Threads';
 import Profile from './components/users/ProfileCard';
 import NewThread from './components/threads/NewThread';
 // import CurrentThread from './components/threads/CurrentThread';
-import newComment from './components/comments/newComment';
+import NewComment from './components/comments/NewComment';
 import Comments from './components/comments/Comments';
 import ChangeData from './components/auth/ChangeData';
 import ChangePassword from './components/auth/ChangePassword';
@@ -51,7 +51,7 @@ function App() {
                 {/* <PrivateRoute exact path='/current' component={CurrentThread} /> */}
                 <PrivateRoute exact path='/newThread' component={NewThread} />
                 <PrivateRoute exact path='/comments/:id' component={Comments} />
-                <PrivateRoute exact path='/newComment' component={newComment} />
+                <PrivateRoute exact path='/newComment/:id' component={NewComment} />
                 <Route exact path='/about' component={About} />
                 <PrivateRoute exact path='/edit-data' component={ChangeData} />
                 <PrivateRoute exact path='/change-password' component={ChangePassword} />

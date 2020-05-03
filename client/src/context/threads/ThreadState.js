@@ -5,6 +5,7 @@ import threadReducer from './threadReducer';
 
 import {
   CREATE_THREAD,
+  CREATE_COMMENT,
   READ_THREAD,
   DELETE_THREAD,
   LOAD_THREADS,
@@ -59,6 +60,28 @@ const ThreadState = props => {
       
     }
   };
+  // create comment
+  const createComment = async (id,formData) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    // `/api/v1/threads/${id}`
+    // `/api/v1/threads/${id}/reviews`
+    try {
+      const res = await axios.post(`/api/v1/threads/${id}/reviews`, formData, config);
+
+      dispatch({
+        type: CREATE_COMMENT,
+        payload: res.data.data.data
+      });
+
+    //   loadUser();
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
 
   // Load threads
   const loadThreads = async () => {
@@ -93,6 +116,7 @@ const ThreadState = props => {
         loadThreads,
         getThread,
         createThread,
+        createComment,
         clearErrors
 
       }}

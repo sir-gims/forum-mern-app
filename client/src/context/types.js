@@ -7,6 +7,8 @@ export const READ_THREAD = 'READ_THREAD';
 export const DELETE_THREAD = 'DELETE_THREAD';
 export const LOAD_THREADS = 'LOAD_THREADS';
 
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+
 export const FILTER_THREADS = 'FILTER_THREADS';
 export const CLEAR_THREADS = 'CLEAR_THREADS'
 export const CLEAR_FILTER = 'CLEAR_FILTER';
